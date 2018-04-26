@@ -87,6 +87,17 @@ int main(void){
    /* Inicializar la placa */
    boardConfig();
 
+   /* The DEBUG* functions are sAPI debug print functions.
+   Code that uses the DEBUG* functions will have their I/O routed to
+   the sAPI DEBUG UART. */
+   DEBUG_PRINT_ENABLE;
+   /* UART for debug messages. */
+   debugPrintConfigUart( UART_USB, 115200 );
+   debugPrintString( "DEBUG c/sAPI\r\n" );
+   debugPrintString( "LED Toggle\n" );
+
+
+
    /* Inicializar el conteo de Ticks con resolucion de 50ms (se ejecuta
       periodicamente una interrupcion cada 50ms que incrementa un contador de
       Ticks obteniendose una base de tiempos). */
